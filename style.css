@@ -1,0 +1,32 @@
+.sketch-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 380px;
+    height: 360px;
+}
+
+.cell{
+    display: flex;
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+}
+
+.cellV{
+    display: flex;
+    
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+}
+
+.cell:hover,
+.cellV:hover{
+    background-color: red;
+}
+
+.hover{
+    background-color: red;
+}
