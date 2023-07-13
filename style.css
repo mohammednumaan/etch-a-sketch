@@ -1,26 +1,61 @@
-.sketch-container{
+body{
+    margin: 0;
+    
+}
+
+.main-container{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0px;
+    min-height: 800px;
+    background-color: peachpuff;
+}
+
+
+.sketch-container{
+    display: flex;
     flex-wrap: wrap;
-    width: 380px;
-    height: 360px;
+    justify-content: center;
+    align-items: center;
+    width: 635px;
+    height: 600px;
+    
+
+}
+
+.header{
+    background-color: orangered;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-image{
+    width: 450px;
+    height: 50px;
 }
 
 .cell{
+    border: 1px solid black;
     display: flex;
-    border: 2px solid black;
-    width: 20px;
-    height: 20px;
+
 }
-
-
 
 .cell:hover,
 .cellV:hover{
-    background-color: red;
+    background-color: black;
 }
 
 .hover{
-    background-color: red;
+    background-color: black;
+}
+
+.button-container{
+    display: flex;
+    margin-left: -400px;
+}
+#clear-button{
+    margin-top: -100px;
 }
