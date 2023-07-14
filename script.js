@@ -12,9 +12,9 @@ function makeGrid(val) {
     for (i = 1; i <= (val * val); i++) {
       const cell = document.createElement("div");
       cell.classList.add("cell");
-      cell.style.width = 640/val - 1.6 + 'px' 
-      cell.style.height =625/val - 1.6 + 'px'
-      console.log(cell.style.width) 
+      cell.style.width  = 635/val - 1.6 + 'px' 
+      cell.style.height = 600/val - 1.6 + 'px'
+  
       
 
       container.appendChild(cell);
