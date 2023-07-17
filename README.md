@@ -9,7 +9,7 @@ The main objective of this project is to create a sketch-pad and allow users to 
 # Implementations
 
 <ul>
-  <li>A simple SPA Design.</li>
+  <li>A simple Webpage.</li>
   <li>Grids are generated using Flexbox and DOM Manipulation Concepts.</li>
   <li>Ability to change the grid-size (16x16 upto 64x64) by the User.</li>
   <li>Ability to sketch/draw on the sketch pad using a default-color (black).</li>
