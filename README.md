@@ -13,7 +13,7 @@ The main objective of this project is to create a sketch-pad and allow users to 
   <li>Grids are generated using Flexbox and DOM Manipulation Concepts.</li>
   <li>Ability to change the grid-size (16x16 upto 64x64) by the User.</li>
   <li>Ability to sketch/draw on the sketch pad using a default-color (black).</li>
-  <li>Ability to sketch/draw on the sketch-pad using random-rgb-variations which uses Math.random() and Math.floor() to genenrate random rgb-numbers.</li>
+  <li>Ability to sketch/draw on the sketch-pad using random-rgb-variations which uses Math.random() and Math.floor() to generate random rgb-numbers.</li>
   <li>Ability to clear the sketch pad whenever the User wants to.</li>
   <li>Misc : DOM Manipulation Concepts and Flexbox Concepts have been implemented highly in this project.</li>
 </ul>
