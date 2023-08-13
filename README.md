@@ -54,6 +54,6 @@ This is a concept-map for the logic behind generating grids based on User's inpu
 # Known Issues/Bugs
 
 <ul>
-  <li>Certain grid-sizes (mostly odd such as 37x37) may alter the grid for some reason, this could due to be the browser rendering values/web-page differently (just an assumption) This issues only arises in FireFox, it works perfectly fine in Chrome.</li>
+  <li>Certain grid-sizes (mostly odd such as 37x37) may alter the grid for some reason, this could due to be the browser rendering values/web-page differently (just an assumption) This issue only arises in FireFox, it works perfectly fine in Chrome.</li>
 </ul>
 
