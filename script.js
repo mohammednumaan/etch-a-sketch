@@ -5,8 +5,6 @@ const rgbButton = document.querySelector("#rgb")
 const size = document.querySelector("#grid-size")
 
 
-
-
 function makeGrid(val) {  
   
     for (i = 1; i <= (val * val); i++) {
@@ -39,12 +37,6 @@ function makeGrid(val) {
         cell.classList.remove('hover')
         cell.style.background = null
     })
-
-      
-
-
-
-    
   }
 }
 
@@ -58,7 +50,7 @@ function generateRandomColor(){
 function getGridSize(){
   let userInput = Number(prompt('Enter Your Grid-Size (16 - 64) :'))
   if (userInput < 16 || userInput > 64) {
-    userInput = Number(prompt('Please Enter Valid Grid-Size (16 - 64) :'))
+    getGridSize()
   }
   return userInput
 }
@@ -72,4 +64,3 @@ size.addEventListener('click', () => {
 
 
 makeGrid(16)
-  
