@@ -9,18 +9,18 @@ The main objective of this project is to create a sketch-pad and allow users to 
 # Implementations
 
 <ul>
-  <li>A simple SPA Design.</li>
+  <li>A simple Webpage.</li>
   <li>Grids are generated using Flexbox and DOM Manipulation Concepts.</li>
   <li>Ability to change the grid-size (16x16 upto 64x64) by the User.</li>
   <li>Ability to sketch/draw on the sketch pad using a default-color (black).</li>
-  <li>Ability to sketch/draw on the sketch-pad using random-rgb-variations which uses Math.random() and Math.floor() to geenrate random rgb-numbers.</li>
+  <li>Ability to sketch/draw on the sketch-pad using random-rgb-variations which uses Math.random() and Math.floor() to generate random rgb-numbers.</li>
   <li>Ability to clear the sketch pad whenever the User wants to.</li>
   <li>Misc : DOM Manipulation Concepts and Flexbox Concepts have been implemented highly in this project.</li>
 </ul>
 
 # Concept Map
 
-This is a concept-map of the logic behind generating grids based on User's input and by default as well.
+This is a concept-map for the logic behind generating grids based on User's input and by default as well.
 
 ![etch-a-sketch Concept Map](https://github.com/mohammednumaan/etch-a-sketch/assets/138296610/4a97cc5f-d916-42e3-b8a3-b59256c54c77)
 
@@ -54,6 +54,6 @@ This is a concept-map of the logic behind generating grids based on User's input
 # Known Issues/Bugs
 
 <ul>
-  <li>Certain grid-sizes (mostly odd such as 37x37) may alter the grid for some reason, this could due to be the browser rendering values/web-page differently (just an assumption).</li>
+  <li>Certain grid-sizes (mostly odd such as 37x37) may alter the grid for some reason, this could due to be the browser rendering values/web-page differently (just an assumption) This issue only arises in FireFox, it works perfectly fine in Chrome.</li>
 </ul>
 
