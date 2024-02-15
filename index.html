@@ -3,35 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Etch-A-Sketch.</title>
-
+    <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    
 </head>
 <body>
-
+    
     <div class="header">
-        <img class="title-image" src="assets/sketch-white.png">
+        <h1>Paintr</h1>
     </div>
 
-    <div class="main-container">
-        <div class="btn">
-            <div class="btn-container">
-                <button id="grid-size">Size</button>
-                <button id="clear">Clear</button>
-                <button id="default">Default</button>
-                <button id="rgb">RGB</button>
-            </div>
+    <div class="sketch-container">
+        <div class="sketch-board"></div>
+    </div>
+
+    <div class="sketch-options">
+        <div class="sketch-btn-group">
+            <input id="color-picker" type="color" value="#000000">
+            <button id="pen"><img src="./assets/drawing.png" width="30px" height="30px"></button>
+            <button id="eraser"><img src="./assets/eraser.png" width="30px" height="30px"></button>
             
         </div>
-        <div class="sketch-container"></div>
-    </div>   
-    
-    
-   
+    </div>
 
-   
-    
 </body>
 </html>
