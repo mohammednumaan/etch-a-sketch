@@ -1,66 +1,88 @@
-const container = document.querySelector(".sketch-container")
-const clearButton = document.querySelector("#clear")
-const defaultButton = document.querySelector("#default")
-const rgbButton = document.querySelector("#rgb")
-const size = document.querySelector("#grid-size")
+// CONSTANTS
+const DEFAULT_COLOR = '#000000'
+
+// DOM ELEMENTS
+const sketchBoard = document.querySelector('.sketch-board');
+const sketchContainer = document.querySelector('.sketch-container');
+const colorPicker = document.querySelector('#color-picker')
+const penTool = document.querySelector('#pen')
+const eraserTool = document.querySelector('#eraser')
+const clearTool = document.querySelector('#clear')
+const sketchSize = document.querySelector('#sketch-size');
+const sizeDisplay = document.querySelector('#size-display');
+
+// ink mode to determine which color to apply on sketch-cells
+let inkMode = DEFAULT_COLOR;
+
+// attaching required listeners initially
+window.onload = () => {
+  colorPicker.value = DEFAULT_COLOR
+  sketchSize.value = 16;
+}
+
+penTool.onclick = () => {
+  setInkMode(colorPicker.value)
+  sketchHandler();
+}
+
+colorPicker.onchange = (e) => setInkMode(e.target.value);
+eraserTool.onclick = () => setInkMode('#FFFFFF'); 
+clearTool.onclick = () => Array.from(sketchBoard.children).forEach(child => child.style.backgroundColor = null)
 
 
-function makeGrid(val) {  
-  
-    for (i = 1; i <= (val * val); i++) {
-      const cell = document.createElement("div");
-      cell.classList.add("cell");
-      cell.style.width  = 635/val - 1.6 + 'px' 
-      cell.style.height = 600/val - 1.6 + 'px'
-  
-      
+// function to generate the grid with the given input (size)
+function generateGrid(size){
 
-      container.appendChild(cell);
-      cell.addEventListener("mouseover", () => {
-        cell.classList.add('hover')
-      })
+  sketchBoard.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+  sketchBoard.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
-      defaultButton.addEventListener("click", () => {
-        cell.addEventListener("mouseover", () => {
-          cell.classList.add('hover')
-          cell.style.background = null
-        })
-      })
-
-      rgbButton.addEventListener("click", () => {
-        cell.addEventListener('mouseover', () => {
-          cell.style.background = generateRandomColor()
-        })
-      })
-
-      clearButton.addEventListener('click', () => {
-        cell.classList.remove('hover')
-        cell.style.background = null
-    })
+  for (let i = 0; i < size * size; i++){
+    const cell = document.createElement('cell');
+    cell.className = 'sketch-cell';
+    sketchBoard.appendChild(cell);
   }
 }
 
-function generateRandomColor(){
-  let r = Math.floor(Math.random() * 256); // Random between 0-255
-  let g = Math.floor(Math.random() * 256); // Random between 0-255
-  let b = Math.floor(Math.random() * 256); // Random between 0-255
-  return 'rgb(' + r + ' , '+ g +','+ b +')'
+// function to handle sketch events
+function sketchHandler(){
+  
+  // callbacks that can later be referenced to remove respective listeners
+  const highlightCallback = (e) => addColorToCell(e.target, inkMode)
+  const clearHighlightCallback = () => sketchBoard.removeEventListener('mouseover', highlightCallback);
+  
+  // attaching listeners to the sketch-board 
+  sketchBoard.addEventListener('mousedown', (e) => {  
+    e.preventDefault()
+    addColorToCell(e.target, inkMode)
+
+    sketchBoard.addEventListener('mouseover', highlightCallback)
+  })
+    
+  // detaching the mouseover events to prevent unnecessary sketch-cell coloring
+  // when the mousdown event is released
+  sketchBoard.addEventListener('mouseup', () => {
+    sketchBoard.removeEventListener('mouseover', highlightCallback)
+    window.removeEventListener('mouseup', clearHighlightCallback);
+  })
 }
 
-function getGridSize(){
-  let userInput = Number(prompt('Enter Your Grid-Size (16 - 64) :'))
-  if (userInput < 16 || userInput > 64) {
-    getGridSize()
-  }
-  return userInput
+// helper function to color the target sketch-cell
+function addColorToCell(cell, color){
+  if (!cell.classList.contains('sketch-cell')) return;
+  cell.style.backgroundColor = color;
 }
 
-size.addEventListener('click', () => {
-  container.innerHTML = ""
-  grid_size = getGridSize()
-  makeGrid(grid_size)
+// helper function to set ink mode
+function setInkMode(mode){
+  inkMode = mode
+}
 
+// attach listener to track slider input and update the grid respectively
+sketchSize.addEventListener('input', (e) => {
+  sketchBoard.replaceChildren()
+  generateGrid(+e.target.value)
+  sizeDisplay.textContent = `Sketch Area : ${e.target.value} x ${e.target.value}`
 })
 
-
-makeGrid(16)
+// initial grid render (16x16)
+generateGrid(16);
