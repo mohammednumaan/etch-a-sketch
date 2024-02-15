@@ -1,3 +1,9 @@
+/* BODY */
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
 /* HEADER CONTAINER */
 .header{
     text-align: center;
@@ -14,16 +20,12 @@
 }
 
 .sketch-board{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     width: 500px;
     height: 500px;
-    border: 1px solid black;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
-.sketch-cell{
-    border: 1px solid black;
-}
 
 /* SKETCH OPTIONS */
 
@@ -35,7 +37,8 @@
     gap: 20px;
 
     position: absolute;
-    top: 300px;
+    top: 260px;
+    left: 20px;
 
     border: 2px solid black;
     border-radius: 24px;
@@ -53,10 +56,23 @@
 }
 
 #pen,
-#eraser{
+#eraser,
+#clear{
     border: 1px solid white;
     cursor: pointer;
     background-color: transparent;
 
+}
+
+.size-controller{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px;
+    
+    position: absolute;
+    bottom: 40px;
+    left: 682px;
 }
 
