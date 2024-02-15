@@ -56,6 +56,7 @@ function sketchHandler(){
     addColorToCell(e.target, inkMode)
 
     sketchBoard.addEventListener('mouseover', highlightCallback)
+    window.addEventListener('mouseup', clearHighlightCallback);
   })
     
   // detaching the mouseover events to prevent unnecessary sketch-cell coloring
