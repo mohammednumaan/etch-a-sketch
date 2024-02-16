@@ -20,11 +20,7 @@ window.onload = () => {
   sketchSize.value = 16;
 }
 
-penTool.onclick = () => {
-  setInkMode(colorPicker.value)
-  sketchHandler();
-}
-
+penTool.onclick = () => setInkMode(colorPicker.value);
 colorPicker.onchange = (e) => setInkMode(e.target.value);
 eraserTool.onclick = () => setInkMode('#FFFFFF'); 
 clearTool.onclick = () => Array.from(sketchBoard.children).forEach(child => child.style.backgroundColor = null)
@@ -86,5 +82,6 @@ sketchSize.addEventListener('input', (e) => {
   sizeDisplay.textContent = `Sketch Area : ${e.target.value} x ${e.target.value}`
 })
 
-// initial grid render (16x16)
+// initial grid render (16x16) and attach listeners
 generateGrid(16);
+sketchHandler();
