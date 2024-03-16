@@ -41,7 +41,8 @@ function generateGrid(size){
 
 // function to handle sketch events
 function sketchHandler(){
-
+  
+  // an abort controller to abort requests (in this case an event)
   let abortController = new AbortController();
 
   // callbacks that can later be referenced to remove respective listeners
