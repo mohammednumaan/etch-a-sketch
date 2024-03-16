@@ -41,26 +41,28 @@ function generateGrid(size){
 
 // function to handle sketch events
 function sketchHandler(){
-  
+
+  let abortController = new AbortController();
+
   // callbacks that can later be referenced to remove respective listeners
   const highlightCallback = (e) => addColorToCell(e.target, inkMode)
   const clearHighlightCallback = () => sketchBoard.removeEventListener('mouseover', highlightCallback);
   
   // attaching listeners to the sketch-board 
   sketchBoard.addEventListener('mousedown', (e) => {  
+
     e.preventDefault()
     addColorToCell(e.target, inkMode)
-
-    sketchBoard.addEventListener('mouseover', highlightCallback)
-    window.addEventListener('mouseup', clearHighlightCallback);
+    sketchBoard.addEventListener('mouseover', highlightCallback, {signal: abortController.signal})
+    window.addEventListener('mouseup', clearHighlightCallback, {signal: abortController.signal});
 
   })
     
   // detaching the mouseover events to prevent unnecessary sketch-cell coloring
   // when the mousdown event is released
   sketchBoard.addEventListener('mouseup', () => {
-    sketchBoard.removeEventListener('mouseover', highlightCallback)
-    window.removeEventListener('mouseup', clearHighlightCallback);
+    abortController.abort()
+    abortController = new AbortController()
   })
 }
 
